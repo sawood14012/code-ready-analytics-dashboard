@@ -21,8 +21,8 @@ jobs:
         python-version: 3.6
     - name: Install dependencies
       run: |
-        docker build . --file Dockerfile --tag qa_dashboard
-        docker run qa_dashboard -e FIREBASE_API_KEY=${{ secrets.FIREBASE_API }}
+        docker build . --file Dockerfile --tag qa_dashboard --build-arg var=${{ secrets.FIREBASE_API }}
+        docker run qa_dashboard
         
         
 
