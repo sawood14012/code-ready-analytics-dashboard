@@ -62,3 +62,19 @@ done
 
 popd
 
+export F8A_API_URL_STAGE=http://bayesian-api-bayesian-preview.b6ff.rh-idev.openshiftapps.com
+export F8A_API_URL_PROD=https://recommender.api.openshift.io
+
+export F8A_JOB_API_URL_STAGE=http://bayesian-jobs-bayesian-preview.b6ff.rh-idev.openshiftapps.com
+export F8A_JOB_API_URL_PROD=http://bayesian-jobs-bayesian-production.09b5.dsaas.openshiftapps.com
+
+export RECOMMENDER_API_TOKEN_STAGE=""
+export RECOMMENDER_API_TOKEN_PROD=""
+
+export JOB_API_TOKEN_STAGE=""
+export JOB_API_TOKEN_PROD=""
+
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+export S3_REGION_NAME="us-east-1"
+
