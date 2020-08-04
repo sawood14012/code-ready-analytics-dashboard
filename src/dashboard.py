@@ -732,10 +732,10 @@ def main():
         json.dump(results_data ,f)
 
     config = {
-    "apiKey": "AIzaSyDBCY--eLNm9UIPkc2YKzZmaQGQ2Hbe2AI",
-    "authDomain": "go-ready-blockchain.firebaseapp.com",
-    "databaseURL": "https://go-ready-blockchain.firebaseio.com",
-    "storageBucket": "go-ready-blockchain.appspot.com",
+    "apiKey": "",
+    "authDomain": "",
+    "databaseURL": "",
+    "storageBucket": "",
     }
 
     firebase = pyrebase.initialize_app(config)
