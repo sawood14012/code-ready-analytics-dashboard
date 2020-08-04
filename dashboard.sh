@@ -17,7 +17,7 @@ function prepare_venv() {
 
 	printf "${GREEN} OK ${NORMAL}\n" >&2
 
-	#${PYTHON} -m venv "venv" && source venv/bin/activate && pip install pycodestyle -r requirements.txt
+	${PYTHON} -m venv "venv" && source venv/bin/activate && pip install pycodestyle -r requirements.txt
 	# ${PYTHON} -m venv "venv" && source venv/bin/activate
         #${VIRTUALENV} -p python3 venv && source venv/bin/activate && python3 `which pip3` install pycodestyle
 }
