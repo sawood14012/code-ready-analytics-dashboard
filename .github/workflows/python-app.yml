@@ -25,19 +25,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         ls
         bash clone_or_pull_all_repos.sh
-        python -B src/dashboard.py
+        docker build . --file Dockerfile --tag qa_dashboard
         |
-        env:
-          F8A_API_URL_STAGE: http://bayesian-api-bayesian-preview.b6ff.rh-idev.openshiftapps.com
-          F8A_API_URL_PROD= https://recommender.api.openshift.io
-          F8A_JOB_API_URL_STAGE: http://bayesian-jobs-bayesian-preview.b6ff.rh-idev.openshiftapps.com
-          F8A_JOB_API_URL_PROD: http://bayesian-jobs-bayesian-production.09b5.dsaas.openshiftapps.com
-          RECOMMENDER_API_TOKEN_STAGE: ""
-          RECOMMENDER_API_TOKEN_PROD: ""
-          JOB_API_TOKEN_STAGE: ""
-          JOB_API_TOKEN_PROD: ""
-          AWS_ACCESS_KEY_ID: ""
-          AWS_SECRET_ACCESS_KEY: ""
-          S3_REGION_NAME: "us-east-1"
+        
 
     
