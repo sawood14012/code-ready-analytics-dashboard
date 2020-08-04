@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         docker build . --file Dockerfile --tag qa_dashboard
-        docker run qa_dashboard
+        docker run qa_dashboard -e FIREBASE_API_KEY=${{ secrets.FIREBASE_API }}
         
         
 
