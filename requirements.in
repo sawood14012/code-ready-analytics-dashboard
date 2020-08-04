@@ -1,0 +1,6 @@
+jsonschema
+requests
+matplotlib
+boto3
+mako
+fastlog
