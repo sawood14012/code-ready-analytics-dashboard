@@ -66,7 +66,8 @@ def check_environment_variables():
         "JOB_API_TOKEN_PROD",
         "AWS_ACCESS_KEY_ID",
         "AWS_SECRET_ACCESS_KEY",
-        "S3_REGION_NAME"]
+        "S3_REGION_NAME",
+        "FIREBASE_API_KEY"]
     for environment_variable in environment_variables:
         check_environment_variable(environment_variable)
 
@@ -731,11 +732,12 @@ def main():
     with open("results.json", "w") as f:
         json.dump(results_data ,f)
 
+    firebase_api_key = os.environ.get("FIREBASE_API_KEY")
     config = {
-    "apiKey": "",
-    "authDomain": "",
-    "databaseURL": "",
-    "storageBucket": "",
+    "apiKey": firebase_api_key,
+    "authDomain": "go-ready-blockchain.firebaseapp.com",
+    "databaseURL": "https://go-ready-blockchain.firebaseio.com",
+    "storageBucket": "go-ready-blockchain.appspot.com",
     }
 
     firebase = pyrebase.initialize_app(config)
