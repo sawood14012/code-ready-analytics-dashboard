@@ -21,12 +21,9 @@ jobs:
         python-version: 3.6
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        ls
-        bash clone_or_pull_all_repos.sh
         docker build . --file Dockerfile --tag qa_dashboard
-        |
+        docker run qa_dashboard
+        
         
 
     
