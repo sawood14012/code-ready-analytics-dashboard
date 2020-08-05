@@ -22,8 +22,8 @@ jobs:
         python-version: 3.6
     - name: Run Dashboard Generate
       run: |
-        docker build . --file Dockerfile --tag qa_dashboard
-        docker run qa_dashboard -e FIREBASE_API_KEY=${{ secrets.FIREBASE_API }}
+        docker build . --file Dockerfile --build-arg var=${{ secrets.FIREBASE_API }} --tag qa_dashboard
+        docker run qa_dashboard
         
         
 
