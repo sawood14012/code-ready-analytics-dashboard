@@ -35,6 +35,7 @@ def run_pylint(repository):
     command = ("pushd repositories/{repo} >> /dev/null;" +
                 "{script} > ../../{repo}.linter.txt;" +
                 "rm -rf venv;"
+                "sleep 5;"
                 "popd >> /dev/null").format(repo=repository, script=script)
     os.system(command)
     log.critical("Done")
@@ -47,6 +48,7 @@ def run_docstyle_check(repository):
     script = path_to_qa_file(repository, "check-docstyle.sh")
     command = ("pushd repositories/{repo} >> /dev/null;" +
                 "{script} > ../../{repo}.pydocstyle.txt;" +
+                "sleep 5;"
                 "popd >> /dev/null").format(
         repo=repository, script=script)
     os.system(command)
@@ -62,11 +64,13 @@ def run_cyclomatic_complexity_tool(repository):
         command = ("pushd repositories/{repo} >> /dev/null;" +
                     "radon cc -a -s -n {rank} -i venv . |ansi2html > " +
                     "../../{repo}.cc.{rank}.html;" +
+                    "sleep 2;"
                     "popd >> /dev/null").format(repo=repository, rank=rank)
         os.system(command)
 
     command = ("pushd repositories/{repo} >> /dev/null;" +
                 "radon cc -s -j -i venv . > ../../{repo}.cc.json;" +
+                "sleep 2;"
                 "popd >> /dev/null").format(repo=repository)
     os.system(command)
     log.critical("Done")
@@ -81,6 +85,7 @@ def run_maintainability_index(repository):
         command = ("pushd repositories/{repo} >> /dev/null;" +
                     "radon mi -s -n {rank} -i venv . | ansi2html " +
                     "> ../../{repo}.mi.{rank}.html;" +
+                    "sleep 5;"
                     "popd >> /dev/null").format(repo=repository, rank=rank)
         os.system(command)
 
@@ -98,6 +103,7 @@ def run_dead_code_detector(repository):
     script = path_to_qa_file(repository, "detect-dead-code.sh")
     command = ("pushd repositories/{repo} >> /dev/null;" +
                 "rm -rf venv;{script} > ../../{repo}.dead_code.txt;" +
+                "sleep 5;"
                 "popd >> /dev/null").format(repo=repository, script=script)
     os.system(command)
     log.critical("Done")
@@ -110,6 +116,7 @@ def run_common_errors_detector(repository):
     script = path_to_qa_file(repository, "detect-common-errors.sh")
     command = ("pushd repositories/{repo} >> /dev/null;" +
                 "{script} > ../../{repo}.common_errors.txt;" +
+                "sleep 5;"
                 "popd >> /dev/null").format(repo=repository, script=script)
     os.system(command)
     log.critical("Done")
