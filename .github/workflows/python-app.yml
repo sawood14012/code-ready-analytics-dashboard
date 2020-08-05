@@ -4,8 +4,7 @@
 name: Dashboard Generate
 
 on:
-  schedule:
-    - cron:  0 15 * * * # everyday at 12 UTC
+  workflow_dispatch:
 
 jobs:
   build:
