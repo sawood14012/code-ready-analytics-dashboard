@@ -588,6 +588,7 @@ def get_code_coverage_threshold(cli_arguments, config):
 
 
 def all_ci_badges(results):
+    """GET all CI badges"""
     jobs = []
     for repo in results.repositories:
         if results.ci_jobs_badges[repo]['build_job'] is None:
@@ -733,11 +734,14 @@ def main():
         json.dump(results_data ,f)
 
     firebase_api_key = os.environ.get("FIREBASE_API_KEY")
+    auth_domain = os.environ.get("AUTH_DOMAIN")
+    database_url = os.environ.get("DATABASEURL")
+    storage_bucket = os.environ.get('STORAGE_BUCKET')
     config = {
     "apiKey": firebase_api_key,
-    "authDomain": "go-ready-blockchain.firebaseapp.com",
-    "databaseURL": "https://go-ready-blockchain.firebaseio.com",
-    "storageBucket": "go-ready-blockchain.appspot.com",
+    "authDomain": auth_domain,
+    "databaseURL": database_url,
+    "storageBucket": storage_bucket,
     }
 
     firebase = pyrebase.initialize_app(config)
