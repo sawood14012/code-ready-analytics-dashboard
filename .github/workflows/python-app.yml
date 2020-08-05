@@ -1,10 +1,11 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: Dashboard Generate
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron:  0 12 * * * # everyday at 12 UTC
 
 jobs:
   build:
@@ -19,10 +20,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.6
-    - name: Install dependencies
+    - name: Run Dashboard Generate
       run: |
-        docker build . --file Dockerfile --tag qa_dashboard --build-arg var=${{ secrets.FIREBASE_API }}
-        docker run qa_dashboard
+        docker build . --file Dockerfile --tag qa_dashboard
+        docker run qa_dashboard -e FIREBASE_API_KEY=${{ secrets.FIREBASE_API }}
         
         
 
