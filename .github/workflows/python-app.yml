@@ -5,7 +5,7 @@ name: Dashboard Generate
 
 on:
   schedule:
-    - cron:  0 12 * * * # everyday at 12 UTC
+    - cron:  0 15 * * * # everyday at 12 UTC
 
 jobs:
   build:
