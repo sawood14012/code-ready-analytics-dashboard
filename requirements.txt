@@ -4,31 +4,27 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-pycodestyle
-boto3==1.4.7
+boto3==1.4.7              # via -r requirements.in
 botocore==1.7.5           # via boto3, s3transfer
 certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
-fastlog==1.0.0b1
 cycler==0.10.0            # via matplotlib
 docutils==0.14            # via botocore
+fastlog==1.0.0b1          # via -r requirements.in
+functools32==3.2.3.post2  # via jsonschema, matplotlib
+futures==3.3.0            # via s3transfer
 idna==2.6                 # via requests
 jmespath==0.9.3           # via boto3, botocore
-jsonschema==2.6.0
-mako==1.0.7
+jsonschema==2.6.0         # via -r requirements.in
+mako==1.0.7               # via -r requirements.in
 markupsafe==1.0           # via mako
-matplotlib==2.0.2
+matplotlib==2.0.2         # via -r requirements.in
 numpy==1.13.1             # via matplotlib
 pyparsing==2.2.0          # via matplotlib
 python-dateutil==2.6.1    # via botocore, matplotlib
 pytz==2017.2              # via matplotlib
-requests==2.11.1
+requests==2.20.0          # via -r requirements.in
 s3transfer==0.1.11        # via boto3
-six==1.10.0               # via cycler, matplotlib, python-dateutil
+six==1.10.0               # via cycler, fastlog, matplotlib, python-dateutil
+subprocess32==3.5.4       # via matplotlib
 urllib3==1.24.2           # via requests
-svgwrite
-radon==2.2.0
-ansi2html
-pyrebase
-pydocstyle
-vulture
